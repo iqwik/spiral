@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Spiral</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Some description... =)" />
+    <link rel="icon" href="favicon.ico"/>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div>
+      <label>
+        Choose filled cell icon:
+        <input type="text" value="+" />
+      </label>
+      <label>
+        Spiral size:
+        <input type="number" value="10" />
+      </label>
+      <button>Draw spiral</button>
+    </div>
+    <br />
+    <div id="root"></div>
+    <script type="application/javascript" src="js/helpers.js"></script>
+    <script type="application/javascript" src="js/spiral.js"></script>
+    <script>
+      document.onload = (function() {
+        const button = document.querySelector('button')
+        const inputSize = document.querySelector('input[type="number"]')
+        const inputFilledCellValue = document.querySelector('input[type="text"]')
+
+        button.addEventListener('click', function(e) {
+          spiral.draw({
+            size: inputSize.value,
+            filledCellValue: inputFilledCellValue.value,
+            showConsoleLog: true,
+          })
+        })
+      })()
+    </script>
+  </body>
+</html>
